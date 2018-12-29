@@ -41,16 +41,16 @@ if __name__ == '__main__':
                 fp.write(str(phenotype[1]) + "\n")
 
 
-    def generate_multiplexer_instance(num_bits):
+    def generate_multiplexer_instance(num_bits1):
         """ """
-        first = solve_equation(num_bits)
+        first = solve_equation(num_bits1)
         if first == None:
             print("Problem_Multiplexer: ERROR - The multiplexer takes # of bits as 3,6,11,20,37,70,135,264")
 
         else:
             condition = []
             # Generate random boolean string
-            for i in range(num_bits):
+            for i in range(num_bits1):
                 condition.append(str(random.randint(0, 1)))
 
             gates = ""
@@ -64,12 +64,12 @@ if __name__ == '__main__':
             return [condition, output]
 
 
-    def generate_complete_multiplexer_data(myfile, num_bits):
+    def generate_complete_multiplexer_data(myfile, num_bits1):
         """ Attempts to generate a complete non-redundant multiplexer dataset.  Ability to generate the entire dataset is computationally limited.
         We had success generating up to the complete 20-multiplexer dataset"""
 
         print("Problem_Multiplexer: Attempting to generate multiplexer dataset")
-        first = solve_equation(num_bits)
+        first = solve_equation(num_bits1)
 
         if first == None:
             print("Problem_Multiplexer: ERROR - The multiplexer takes # of bits as 3,6,11,20,37,70,135,264")
@@ -80,18 +80,19 @@ if __name__ == '__main__':
                 for i in range(first):
                     fp.write('A_' + str(i) + "\t")  # Address Bits
 
-                for i in range(num_bits - first):
+                for i in range(num_bits1 - first):
                     fp.write('R_' + str(i) + "\t")  # Register Bits
                 fp.write("Class" + "\n")  # State found at Register Bit
 
-                for i in range(2 ** num_bits):
+                for i in range(2 ** num_bits1):
                     binary_str = bin(i)
                     string_array = binary_str.split('b')
                     binary = string_array[1]
 
-                    while len(binary) < num_bits:
+                    while len(binary) < num_bits1:
                         binary = "0" + binary
 
+                    print(binary)
                     gates = ""
                     for j in range(first):
                         gates += binary[j]
@@ -101,6 +102,7 @@ if __name__ == '__main__':
 
                     # fp.write(str(i)+"\t")
                     for j in binary:
+                        print(j)
                         fp.write(j + "\t")
                     fp.write(output + "\n")
 
@@ -112,13 +114,13 @@ if __name__ == '__main__':
                     "ERROR - Cannot generate all data instances for specified multiplexer due to computational limitations")
 
 
-    def solve_equation(num_bits):
+    def solve_equation(num_bits1):
         for i in range(1000):
-            if i + 2 ** i == num_bits:
+            if i + 2 ** i == num_bits1:
                 return i
         return None
 
 
     # generate_multiplexer_phenotype(37)
-    generate_multiplexer_data("Multiplexer_Data.txt", 6, 10)
-    # generate_complete_multiplexer_data("Multiplexer_Data.txt", 3)  # 3,6,11,20,37
+    #generate_multiplexer_data("Multiplexer_Data.txt", 6, 10)
+    generate_complete_multiplexer_data("Multiplexer_Data.txt", 6)  # 3,6,11,20,37
