@@ -35,10 +35,10 @@ if __name__ == '__main__':
             fp.write("Class" + "\n")  # State found at Register Bit
 
             for i in range(instances):
-                phenotype = generate_multiplexer_instance(num_bits)
-                for j in phenotype[0]:
+                instance = generate_multiplexer_instance(num_bits)
+                for j in instance[0]:
                     fp.write(str(j) + "\t")
-                fp.write(str(phenotype[1]) + "\n")
+                fp.write(str(instance[1]) + "\n")
 
 
     def generate_multiplexer_instance(num_bits):
@@ -120,5 +120,5 @@ if __name__ == '__main__':
 
 
     # generate_multiplexer_phenotype(37)
-    #generate_multiplexer_data("Multiplexer_Data.txt", 6, 10)
-    generate_complete_multiplexer_data("Multiplexer_Data.txt", 6)  # 3,6,11,20,37
+    generate_multiplexer_data("Multiplexer_Data.txt", 6, 10)
+    #generate_complete_multiplexer_data("Multiplexer_Data.txt", 6)  # 3,6,11,20,37

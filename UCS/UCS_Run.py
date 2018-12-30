@@ -22,13 +22,14 @@ You should have received a copy of the GNU General Public License along with thi
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 """
-
+# Import Required Modules------------------------------------
+from UCS.UCS_Timer import Timer
 from UCS.UCS_Algorithm import UCS
 from UCS.UCS_ConfigParser import ConfigParser
 from UCS.UCS_Constants import *
 from UCS.UCS_Offline_Environment import Offline_Environment
-# Import Required Modules------------------------------------
-from UCS.UCS_Timer import Timer
+
+import shutil
 
 # -----------------------------------------------------------
 
@@ -49,6 +50,16 @@ if __name__ == '__main__':
     env = Offline_Environment()
     cons.referenceEnv(env)  # Passes the environment to 'Constants' (cons) so that it can be easily accessed from anywhere within the code.
     cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
+
+    # Clear Local_Output Folder before Run
+    folder = 'Local_Output'
+    for file in os.listdir(folder):
+        file_path = os.path.join(folder, file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception as e:
+            print(e)
 
     # Run the e-LCS algorithm.
     UCS()

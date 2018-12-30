@@ -19,17 +19,17 @@ if __name__ == '__main__':
         if num_bits is None:
             print("Problem_Parity: ERROR - Specified binary string bits is smaller than or 0")
         else:
-            fp = open("Demo_Datasets/" + myfile, "w")
+            fp = open("Demo_Datasets/"+myfile, "w")
             # Make File Header
             for i in range(num_bits):
                 fp.write('B_' + str(i) + "\t")  # Bits
             fp.write("Class" + "\n")  # Class
 
             for i in range(instances):
-                phenotype = generate_binary_instance(bits)
-                for j in phenotype[0]:
+                instance = generate_parity_instance(bits)
+                for j in instance[0]:
                     fp.write(str(j) + "\t")
-                fp.write(str(phenotype[1]) + "\n")
+                fp.write(str(instance[1]) + "\n")
 
             fp.close()
             print("Problem_Parity: File Generated")
