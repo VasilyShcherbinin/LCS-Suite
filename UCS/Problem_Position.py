@@ -1,48 +1,48 @@
 """
-Name: Problem_Parity.py
+Name: Problem_Position.py
 Author: Vasily Shcherbinin
-Created: December 29, 2018
-Description: Parity Problem
+Created: December 30, 2018
+Description: Position Problem
 Input: Binary string
-Output: No. of 1’s modulo 2
+Output: Position of the left-most one-valued bit.
 """
 
 import random
 
 if __name__ == '__main__':
 
-    def generate_parity_data(myfile, bits, instances):
+    def generate_position_data(myfile, bits, instances):
         """ """
-        print("Problem_Parity: Attempting to Generate parity dataset with " + str(instances) + " instances.")
+        print("Problem_Position: Attempting to Generate position dataset with " + str(instances) + " instances.")
         num_bits = sanity_check(bits)
 
         if num_bits is None:
-            print("Problem_Parity: ERROR - Specified binary string bits is smaller than or 0")
+            print("Problem_Position: ERROR - Specified binary string bits is smaller than or 0")
         else:
-            fp = open("Demo_Datasets/" + myfile, "w")
+            fp = open("Demo_Datasets/"+myfile, "w")
             # Make File Header
             for i in range(num_bits):
                 fp.write('B_' + str(i) + "\t")  # Bits
             fp.write("Class" + "\n")  # Class
 
             for i in range(instances):
-                instance = generate_parity_instance(bits)
+                instance = generate_position_instance(bits)
                 for j in instance[0]:
                     fp.write(str(j) + "\t")
                 fp.write(str(instance[1]) + "\n")
 
             fp.close()
-            print("Problem_Parity: File Generated")
+            print("Problem_Position: File Generated")
 
 
-    def generate_parity_instance(bits):
+    def generate_position_instance(bits):
         """ """
         num_bits = sanity_check(bits)
         if num_bits is None:
-            print("Problem_Parity: ERROR - Specified binary string size is smaller than or 0")
+            print("Problem_Position: ERROR - Specified binary string size is smaller than or 0")
         else:
             condition = []
-            one_count = 0
+            position = 0
 
             # Generate random boolean string
             for i in range(bits):
@@ -50,24 +50,22 @@ if __name__ == '__main__':
 
             for j in range(len(condition)):
                 if int(condition[j]) == 1:
-                    one_count += 1
+                    position = j
+                    break
 
-            if one_count % 2 == 0:
-                output = 0
-            else:
-                output = 1
+            output = position
 
             return [condition, output]
 
 
-    def generate_complete_parity_data(myfile, bits):
-        """ Attempts to generate a complete non-redundant parity dataset."""
+    def generate_complete_position_data(myfile, bits):
+        """ Attempts to generate a complete non-redundant position dataset."""
 
-        print("Problem_Parity: Attempting to generate complete parity dataset")
+        print("Problem_Position: Attempting to generate complete position dataset")
         num_bits = sanity_check(bits)
 
         if num_bits is None:
-            print("Problem_Parity: ERROR - Specified binary string bits is smaller than or 0")
+            print("Problem_Position: ERROR - Specified binary string bits is smaller than or 0")
         else:
             try:
                 fp = open("Demo_Datasets/"+myfile, "w")
@@ -84,16 +82,13 @@ if __name__ == '__main__':
                     while len(binary) < num_bits:
                         binary = "0" + binary
 
-                    one_count = 0
+                    bin_list = list(binary)
+                    output = 0
 
-                    for j in binary:
-                        if int(j) == 1:
-                            one_count += 1
-
-                    if one_count % 2 == 0:
-                        output = 0
-                    else:
-                        output = 1
+                    for j in range(len(bin_list)):
+                        if int(bin_list[j]) == 1:
+                            output = j
+                            break
 
                     for j in range(num_bits):
                         fp.write(binary[j] + "\t")
@@ -101,7 +96,7 @@ if __name__ == '__main__':
                     fp.write(str(output) + "\n")
 
                 fp.close()
-                print("Problem_Parity: Dataset Generation Complete")
+                print("Problem_Position: Dataset Generation Complete")
 
             except:
                 print(
@@ -116,5 +111,5 @@ if __name__ == '__main__':
     bits = 6
     instances = 10
 
-    #generate_parity_data(str(bits)+"-"+str(instances)+"Parity_Data.txt", bits, instances)
-    generate_complete_parity_data(str(bits)+"Parity_Data_Complete.txt", bits)
+    # generate_position_data(str(bits)+"-"+str(instances)+"Position_Data.txt", bits, instances)
+    generate_complete_position_data(str(bits) + "Position_Data_Complete.txt", bits)
