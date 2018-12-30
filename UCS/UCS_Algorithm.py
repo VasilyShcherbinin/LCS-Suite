@@ -25,6 +25,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 import math
 import random
+import time
 
 from UCS.UCS_ClassAccuracy import ClassAccuracy
 # Import Required Modules-------------------------------
@@ -38,7 +39,7 @@ from UCS.UCS_Prediction import *
 class UCS:
     def __init__(self):
         """ Initializes the LCS algorithm """
-        print("LCS: Initializing Algorithm...")
+        print("UCS: Initializing Algorithm...")
         # Global Parameters-------------------------------------------------------------------------------------
         self.population = None  # The rule population (the 'solution/model' evolved by LCS)
         self.learnTrackOut = None  # Output file that will store tracking information during learning
@@ -87,6 +88,7 @@ class UCS:
         # -------------------------------------------------------
         # MAJOR LEARNING LOOP
         # -------------------------------------------------------
+        t0 = time.clock()
         while (self.exploreIter < cons.maxLearningIterations and trackedAccuracy < 1):
 
             # -------------------------------------------------------
@@ -126,6 +128,10 @@ class UCS:
         # Once LCS has reached the last learning iteration, close the tracking file
         self.evaluate()
         self.learnTrackOut.close()
+
+        t1 = time.clock()
+        total = t1-t0
+        print("Run time in seconds: %.2f" % round(total,2))
         print("LCS Run Complete")
 
     def evaluate(self):
@@ -153,6 +159,7 @@ class UCS:
         cons.env.stopEvaluationMode()  # Returns to learning position in training data
         cons.timer.stopTimeEvaluation()
         cons.timer.returnGlobalTimer()
+
         # Write output files----------------------------------------------------------------------------------------------------------
         OutputFileManager().writePopStats(cons.outFileName, trainEval, testEval, self.exploreIter + 1,
                                           self.population, self.correct)
@@ -160,7 +167,7 @@ class UCS:
         # ----------------------------------------------------------------------------------------------------------------------------
         print("Continue Learning...")
         print(
-            "------------------------------------------------------------------------------------------------------------------------------------------------------")
+            "--------------------------------------------------------------------------------------------------")
 
     def runIteration(self, phenotype, exploreIter):
         """ Run a single LCS learning iteration. """

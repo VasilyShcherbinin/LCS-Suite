@@ -19,7 +19,7 @@ if __name__ == '__main__':
         if num_bits is None:
             print("Problem_Position: ERROR - Specified binary string bits is smaller than or 0")
         else:
-            fp = open("Demo_Datasets/"+myfile, "w")
+            fp = open("Demo_Datasets/" + myfile, "w")
             # Make File Header
             for i in range(num_bits):
                 fp.write('B_' + str(i) + "\t")  # Bits

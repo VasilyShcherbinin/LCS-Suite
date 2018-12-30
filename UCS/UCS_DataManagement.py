@@ -56,7 +56,7 @@ class DataManagement:
         self.numTestphenotypes = None  # The number of phenotypes in the testing data
 
         print("----------------------------------------------------------------------------")
-        print("LCS Code Demo 5: The Complete LCS Algorithm - Niche GA + Subsumption")
+        print("UCS: The Complete UCS Algorithm - Niche GA + Subsumption")
         print("----------------------------------------------------------------------------")
         print("Environment: Formatting Data... ")
 
