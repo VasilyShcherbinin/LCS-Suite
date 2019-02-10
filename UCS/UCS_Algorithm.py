@@ -37,6 +37,8 @@ from UCS.UCS_Prediction import *
 # ------------------------------------------------------
 
 class UCS:
+    standardAccuracy = 0
+
     def __init__(self):
         """ Initializes the LCS algorithm """
         print("UCS: Initializing Algorithm...")
@@ -77,6 +79,7 @@ class UCS:
     def run_UCS(self):
 
         trackedAccuracy = 0
+
         """ Runs the initialized LCS algorithm. """
         # --------------------------------------------------------------
         print("Learning Checkpoints: " + str(cons.learningCheckpoints))
@@ -89,7 +92,7 @@ class UCS:
         # MAJOR LEARNING LOOP
         # -------------------------------------------------------
         t0 = time.clock()
-        while (self.exploreIter < cons.maxLearningIterations and trackedAccuracy < 1):
+        while self.exploreIter < cons.maxLearningIterations and trackedAccuracy < 1:
 
             # -------------------------------------------------------
             # GET NEW phenotype AND RUN A LEARNING ITERATION
@@ -106,11 +109,12 @@ class UCS:
             # TRACK LEARNING ESTIMATES
             # -------------------------------------------------------
             if (self.exploreIter % cons.trackingFrequency) == (cons.trackingFrequency - 1) and self.exploreIter > 0:
+
                 self.population.runPopAveEval(self.exploreIter)
                 trackedAccuracy = sum(self.correct) / float(
                     cons.trackingFrequency)  # Accuracy over the last "trackingFrequency" number of iterations.
-                self.learnTrackOut.write(self.population.getPopTrack(trackedAccuracy, self.exploreIter + 1,
-                                                                     cons.trackingFrequency))  # Report learning progress to standard out and tracking file.
+                self.learnTrackOut.write(self.population.getPopTrack(trackedAccuracy, self.exploreIter + 1, cons.trackingFrequency))  # Report learning progress to standard out and tracking file.
+
             cons.timer.stopTimeEvaluation()
 
             # -------------------------------------------------------
@@ -142,19 +146,15 @@ class UCS:
         self.population.runPopAveEval(self.exploreIter)
         self.population.runAttGeneralitySum(True)
         cons.env.startEvaluationMode()  # Preserves learning position in training data
-        if cons.testFile != 'None':  # If a testing file is available.
+        if cons.testFile != 'None' or cons.kfold > 0:  # If a testing file is available.
             if cons.env.formatData.discretephenotype:
                 trainEval = self.doPopEvaluation(True)
                 testEval = self.doPopEvaluation(False)
-            else:
-                trainEval = self.doContPopEvaluation(True)
-                testEval = self.doContPopEvaluation(False)
         else:  # Only a training file is available
             if cons.env.formatData.discretephenotype:
                 trainEval = self.doPopEvaluation(True)
                 testEval = None
             else:
-                trainEval = self.doContPopEvaluation(True)
                 testEval = None
         cons.env.stopEvaluationMode()  # Returns to learning position in training data
         cons.timer.stopTimeEvaluation()
@@ -290,7 +290,7 @@ class UCS:
             phenotypeList[0]].T_otherClass
         phenotypesIncorrectlyClassified = classAccDict[phenotypeList[0]].F_myClass + classAccDict[
             phenotypeList[0]].F_otherClass
-        standardAccuracy = float(phenotypesCorrectlyClassified) / float(
+        self.standardAccuracy = float(phenotypesCorrectlyClassified) / float(
             phenotypesCorrectlyClassified + phenotypesIncorrectlyClassified)
 
         # Calculate Balanced Accuracy---------------------------------------------
@@ -312,7 +312,7 @@ class UCS:
         phenotypeCoverage = 1.0 - predictionFail
         predictionMade = 1.0 - (predictionFail + predictionTies)
 
-        adjustedStandardAccuracy = (standardAccuracy * predictionMade) + (
+        adjustedStandardAccuracy = (self.standardAccuracy * predictionMade) + (
                 (1.0 - predictionMade) * (1.0 / float(len(phenotypeList))))
         adjustedBalancedAccuracy = (balancedAccuracy * predictionMade) + (
                 (1.0 - predictionMade) * (1.0 / float(len(phenotypeList))))
@@ -324,66 +324,12 @@ class UCS:
         print("Prediction Ties = " + str(predictionTies * 100.0) + '%')
         print(str(phenotypesCorrectlyClassified) + ' out of ' + str(
             phenotypes) + ' instances covered and correctly classified.')
+        print("Standard Accuracy = " + str(self.standardAccuracy))
         print("Standard Accuracy (Adjusted) = " + str(adjustedStandardAccuracy))
         print("Balanced Accuracy (Adjusted) = " + str(adjustedBalancedAccuracy))
+        UCS.standardAccuracy = self.standardAccuracy
         # Balanced and Standard Accuracies will only be the same when there are equal phenotypes representative of each phenotype AND there is 100% covering.
         resultList = [adjustedBalancedAccuracy, phenotypeCoverage]
-        return resultList
-
-    def doContPopEvaluation(self, isTrain):
-        """ Performs evaluation of population via the copied environment. Specifically developed for continuous phenotype evaulation.
-        The population is maintained unchanging throughout the evaluation.  Works on both training and testing data. """
-        if isTrain:
-            myType = "TRAINING"
-        else:
-            myType = "TESTING"
-        noMatch = 0  # How often does the population fail to have a classifier that matches an phenotype in the data.
-        cons.env.resetDataRef(isTrain)  # Go to first phenotype in data set
-        accuracyEstimateSum = 0
-
-        if isTrain:
-            phenotypes = cons.env.formatData.numTrainphenotypes
-        else:
-            phenotypes = cons.env.formatData.numTestphenotypes
-        # ----------------------------------------------------------------------------------------------
-        for inst in range(phenotypes):
-            if isTrain:
-                phenotype = cons.env.getTrainphenotype()
-            else:
-                phenotype = cons.env.getTestphenotype()
-            # -----------------------------------------------------------------------------
-            self.population.makeEvalMatchSet(phenotype[0])
-            prediction = Prediction(self.population)
-            phenotypePrediction = prediction.getDecision()
-            # -----------------------------------------------------------------------------
-            if phenotypePrediction == None:
-                noMatch += 1
-            else:  # phenotypes which failed to be covered are excluded from the initial accuracy calculation
-                predictionError = math.fabs(float(phenotypePrediction) - float(phenotype[1]))
-                phenotypeRange = cons.env.formatData.phenotypeList[1] - cons.env.formatData.phenotypeList[0]
-                accuracyEstimateSum += 1.0 - (predictionError / float(phenotypeRange))
-
-            cons.env.newphenotype(isTrain)  # next phenotype
-            self.population.clearSets()
-            # ----------------------------------------------------------------------------------------------
-        # Accuracy Estimate
-        if phenotypes == noMatch:
-            accuracyEstimate = 0
-        else:
-            accuracyEstimate = accuracyEstimateSum / float(phenotypes - noMatch)
-
-        # Adjustment for uncovered phenotypes - to avoid positive or negative bias we incorporate the probability of guessing a phenotype by chance (e.g. 50% if two phenotypes)
-        phenotypeCoverage = 1.0 - (float(noMatch) / float(phenotypes))
-        adjustedAccuracyEstimate = accuracyEstimateSum / float(
-            phenotypes)  # noMatchs are treated as incorrect predictions (can see no other fair way to do this)
-
-        print("-----------------------------------------------")
-        print(str(myType) + " Accuracy Results:-------------")
-        print("Instance Coverage = " + str(phenotypeCoverage * 100.0) + '%')
-        print("Estimated Prediction Accuracy (Ignore uncovered) = " + str(accuracyEstimate))
-        print("Estimated Prediction Accuracy (Penalty uncovered) = " + str(adjustedAccuracyEstimate))
-        # Balanced and Standard Accuracies will only be the same when there are equal phenotypes representative of each phenotype AND there is 100% covering.
-        resultList = [adjustedAccuracyEstimate, phenotypeCoverage]
         return resultList
 
     def populationReboot(self):

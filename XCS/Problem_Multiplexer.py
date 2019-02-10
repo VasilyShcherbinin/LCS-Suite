@@ -25,7 +25,7 @@ if __name__ == '__main__':
             print("Problem_Multiplexer: ERROR - The multiplexer takes # of bits as 3,6,11,20,37,70,135,264")
 
         else:
-            fp = open("Demo_Datasets/"+myfile, "w")
+            fp = open("Demo_Datasets/" + myfile, "w")
             # Make File Header
             for i in range(first):
                 fp.write('A_' + str(i) + "\t")  # Address Bits
@@ -118,8 +118,9 @@ if __name__ == '__main__':
                 return i
         return None
 
-    bits = 3
+
+    bits = 6
     instances = 10
 
-    generate_complete_multiplexer_data(str(bits)+"Multiplexer_Data_Complete.txt", bits) # 3,6,11,20,37
+    generate_complete_multiplexer_data(str(bits) + "Multiplexer_Data_Complete.txt", bits)  # 3,6,11,20,37
     # generate_multiplexer_data("Multiplexer_Data.txt", bits, instances)

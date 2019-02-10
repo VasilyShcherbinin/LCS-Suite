@@ -49,7 +49,7 @@ class ClassifierSet:
         self.avephenotypeRange = 0.0
 
         # Set Constructors-------------------------------------
-        if a == None:
+        if a is None:
             self.makePop()  # Initialize a new population
         elif isinstance(a, str):
             self.rebootPop(a)  # Initialize a population based on an existing saved rule population
@@ -259,7 +259,7 @@ class ClassifierSet:
         # INITIALIZE OFFSPRING 
         # -------------------------------------------------------
         cl1 = Classifier(clP1, exploreIter)
-        if clP2 == None:
+        if clP2 is None:
             cl2 = Classifier(clP1, exploreIter)
         else:
             cl2 = Classifier(clP2, exploreIter)
@@ -390,7 +390,7 @@ class ClassifierSet:
         for ref in self.correctSet:
             cl = self.popSet[ref]
             if cl.isSubsumer():
-                if subsumer == None or cl.isMoreGeneral(subsumer):
+                if subsumer is None or cl.isMoreGeneral(subsumer):
                     subsumer = cl
 
         if subsumer != None:  # If a subsumer was found, subsume all more specific classifiers in the correct set
@@ -516,8 +516,7 @@ class ClassifierSet:
         genSum = 0
         agedCount = 0
         for cl in self.popSet:
-            genSum += ((cons.env.formatData.numAttributes - len(cl.condition)) / float(
-                cons.env.formatData.numAttributes)) * cl.numerosity
+            genSum += ((cons.env.formatData.numAttributes - len(cl.condition)) / float(cons.env.formatData.numAttributes)) * cl.numerosity
         if self.microPopSize == 0:
             self.aveGenerality = 'NA'
         else:

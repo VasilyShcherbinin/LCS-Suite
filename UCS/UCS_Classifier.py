@@ -59,7 +59,7 @@ class Classifier:
             self.classifierCovering(a, b, c, d)
         elif isinstance(a, Classifier):
             self.classifierCopy(a, b)
-        elif isinstance(a, list) and b == None:
+        elif isinstance(a, list) and b is None:
             self.rebootClassifier(a)
         else:
             print("Classifier: Error building classifier.")

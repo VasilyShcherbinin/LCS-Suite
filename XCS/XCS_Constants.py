@@ -1,44 +1,23 @@
-"""
-Name:        UCS_Constants.py
-Authors:     Ryan Urbanowicz - Written at Dartmouth College, Hanover, NH, USA
-Contact:     ryan.j.urbanowicz@darmouth.edu
-Created:     November 1, 2013
-Description: Stores and manages all algorithm run parameters, making them accessible anywhere in the rest of the algorithm code by (cons.) .
-             
----------------------------------------------------------------------------------------------------------------------------------------------------------
-LCS: Educational Learning Classifier System - A basic LCS coded for educational purposes.  This LCS algorithm uses supervised learning, and thus is most
-similar to "UCS", an LCS algorithm published by Ester Bernado-Mansilla and Josep Garrell-Guiu (2003) which in turn is based heavily on "XCS", an LCS 
-algorithm published by Stewart Wilson (1995).  
-
-Copyright (C) 2013 Ryan Urbanowicz 
-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the 
-Free Software Foundation; either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABLILITY 
-or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, 
-Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
----------------------------------------------------------------------------------------------------------------------------------------------------------
-"""
 import os
 
 
 class Constants:
     def setConstants(self, par):
-        """ Takes the parameters parsed as a dictionary from UCS.UCS_ConfigParser and saves them as global constants. """
+        """ Takes the parameters parsed as a dictionary from xcs_config_parser and saves them as global constants. """
 
         # Major Run Parameters -----------------------------------------------------------------------------------------
         self.trainFile = os.path.join(par['datasetDirectory'], par['trainFile'])  # Saved as text
         if par['testFile'] == 'None':
             self.testFile = 'None'  # Saved as text
         else:
-            self.testFile = os.path.join(par['datasetDirectory'], par['testFile'])  # Saved as text
+            self.testFile = os.path.join(par['datasetDirectory'],
+                                         par['testFile'])  # Saved as text        self.kfold = 0
 
         self.kfold = int(par['kfold'])
 
         self.originalOutFileName = os.path.join(par['outputDirectory'], str(par['outputFile']))  # Saved as text
-        self.outFileName = os.path.join(par['outputDirectory'], str(par['outputFile']) + '_UCS')  # Saved as text
+        self.outFileName = os.path.join(par['outputDirectory'], str(par['outputFile']) + '_XCS')  # Saved as text
+
         self.learningIterations = par['learningIterations']  # Saved as text
         self.N = int(par['N'])  # Saved as integer
         self.p_spec = float(par['p_spec'])  # Saved as float
@@ -57,22 +36,33 @@ class Constants:
         self.trackingFrequency = int(par['trackingFrequency'])  # Saved as integer
 
         # Supervised Learning Parameters -------------------------------------------------------------------------------
-        self.nu = int(par['nu'])  # Saved as integer
+        self.nu = float(par['nu'])  # Saved as integer
         self.chi = float(par['chi'])  # Saved as float
-        self.upsilon = float(par['upsilon'])  # Saved as float
+        self.phi = float(par['phi'])  # Saved as float
+        self.mu = float(par['mu'])  # Saved as float
+        self.offset_epsilon = float(par['offset_epsilon'])  # Saved as float
+        self.alpha = float(par['alpha'])  # Saved as float
+        self.gamma = float(par['gamma'])  # Saved as float
         self.theta_GA = int(par['theta_GA'])  # Saved as integer
+        self.theta_mna = int(par['theta_mna'])  # Saved as integer
         self.theta_del = int(par['theta_del'])  # Saved as integer
         self.theta_sub = int(par['theta_sub'])  # Saved as integer
-        self.acc_sub = float(par['acc_sub'])  # Saved as float
+        self.err_sub = float(par['error_sub'])  # Saved as float
         self.beta = float(par['beta'])  # Saved as float
         self.delta = float(par['delta'])  # Saved as float
+        self.init_pred = float(par['init_pred'])  # Saved as float
+        self.init_err = float(par['init_err'])  # Saved as float
         self.init_fit = float(par['init_fit'])  # Saved as float
-        self.fitnessReduction = float(par['fitnessReduction'])  # Saved as float
+        self.fitness_reduction = float(par['fitnessReduction'])  # Saved as float
+        self.exploration = float(par['exploration'])  # Saved as float
 
         # Algorithm Heuristic Options -------------------------------------------------------------------------------
-        self.doSubsumption = bool(int(par['doSubsumption']))  # Saved as Boolean
+        self.doGASubsumption = bool(int(par['doGASubsumption']))
+        self.doActionSetSubsumption = bool(int(par['doActionSetSubsumption']))  # Saved as Boolean
         self.selectionMethod = par['selectionMethod']  # Saved as text
         self.theta_sel = float(par['theta_sel'])  # Saved as float
+        self.distinctParents = bool(int(par['differentParent']))  # Saved as Boolean
+        self.crossoverMethod = par['crossoverMethod']  # Saved as text
 
         # PopulationReboot -------------------------------------------------------------------------------
         self.doPopulationReboot = bool(int(par['doPopulationReboot']))  # Saved as Boolean
@@ -85,6 +75,7 @@ class Constants:
     def referenceEnv(self, e):
         """ Store reference to environment object. """
         self.env = e
+        self.theta_mna = len(e.format_data.phenotypeList)
 
     def parseIterations(self):
         """ Parse the 'learningIterations' string to identify the maximum number of learning iterations as well as evaluation checkpoints. """
@@ -96,7 +87,7 @@ class Constants:
         self.maxLearningIterations = self.learningCheckpoints[(len(self.learningCheckpoints) - 1)]
 
         if self.trackingFrequency == 0:
-            self.trackingFrequency = self.env.formatData.numTrainphenotypes  # Adjust tracking frequency to match the training data size - learning tracking occurs once every epoch
+            self.trackingFrequency = self.env.format_data.numTrainphenotypes  # Adjust tracking frequency to match the training data size - learning tracking occurs once every epoch
 
 
 # To access one of the above constant values from another module, import GHCS_Constants * and use "cons.something"

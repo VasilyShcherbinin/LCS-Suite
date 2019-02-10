@@ -23,14 +23,13 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 """
 # Import Required Modules------------------------------------
+import time
+
 from UCS.UCS_Timer import Timer
 from UCS.UCS_Algorithm import UCS
 from UCS.UCS_ConfigParser import ConfigParser
 from UCS.UCS_Constants import *
 from UCS.UCS_Offline_Environment import Offline_Environment
-
-import shutil
-
 # -----------------------------------------------------------
 
 if __name__ == '__main__':
@@ -62,4 +61,24 @@ if __name__ == '__main__':
             print(e)
 
     # Run the e-LCS algorithm.
-    UCS()
+    #UCS()
+
+    t0 = time.clock()
+    if cons.kfold > 0:
+        total_instances = env.formatData.numTrainphenotypes
+        env.formatData.splitFolds2()
+        accurate_numbs = [0.0] * cons.kfold
+        for i in range(cons.kfold):
+            env.formatData.selectTrainTestSets(i)
+            cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
+            UCS()
+            accuracy = UCS.standardAccuracy
+            accurate_numbs[i] = accuracy * env.formatData.numTestphenotypes
+        print("AVERAGE ACCURACY AFTER " + str(cons.kfold) + "-FOLD CROSS VALIDATION is " + str(
+            sum(accurate_numbs) / total_instances))
+    else:
+        cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
+        UCS()
+    t1 = time.clock()
+    total = t1 - t0
+    print("Run time in seconds: %.2f" % round(total, 2))
