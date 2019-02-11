@@ -81,4 +81,4 @@ if __name__ == '__main__':
         UCS()
     t1 = time.clock()
     total = t1 - t0
-    print("Run time in seconds: %.2f" % round(total, 2))
+    print("Total run time in seconds: %.2f" % round(total, 2))

@@ -67,4 +67,4 @@ if __name__ == '__main__':
         XCS().run_XCS()
     t1 = time.clock()
     total = t1 - t0
-    print("Total un time in seconds: %.2f" % round(total, 2))
+    print("Total run time in seconds: %.2f" % round(total, 2))
