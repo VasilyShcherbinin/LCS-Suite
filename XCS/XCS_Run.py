@@ -52,14 +52,13 @@ if __name__ == '__main__':
     t0 = time.clock()
     if cons.kfold > 0:
         total_instances = env.format_data.numTrainphenotypes
-        env.format_data.splitFolds2()
+        env.format_data.splitDataIntoKSets()
         accurate_numbs = [0.0] * cons.kfold
         for i in range(cons.kfold):
             env.format_data.selectTrainTestSets(i)
             cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
             XCS().run_XCS()
             accuracy = XCS.standard_accuracy
-            # accuracy = XCS().run_XCS()[0]
             accurate_numbs[i] = accuracy * env.format_data.numTestphenotypes
         print("AVERAGE ACCURACY AFTER " + str(cons.kfold) + "-FOLD CROSS VALIDATION is " + str(
             sum(accurate_numbs) / total_instances))
@@ -68,4 +67,4 @@ if __name__ == '__main__':
         XCS().run_XCS()
     t1 = time.clock()
     total = t1 - t0
-    print("Run time in seconds: %.2f" % round(total, 2))
+    print("Total un time in seconds: %.2f" % round(total, 2))

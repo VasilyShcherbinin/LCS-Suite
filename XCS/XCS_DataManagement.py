@@ -293,35 +293,8 @@ class DataManagement:
         # random.shuffle(formatted) #One time randomization of the order the of the instances in the data, so that if the data was ordered by phenotype, this potential learning bias (based on instance ordering) is eliminated.
         return formatted
 
-    def splitFolds(self):
+    def splitDataIntoKSets(self):
         """ divide data set into kfold sets. """
-        data_size = len(self.trainFormatted)
-        class_counts = [0] * len(self.phenotypeList)
-        for instance in self.trainFormatted:
-            class_counts[self.phenotypeList.index(instance[1])] += 1
-        fold_size = int(data_size / cons.kfold)
-        split_again = True
-        while split_again:
-            split_again = False
-            self.folds = [[] for _ in range(cons.kfold)]
-            start_point = 0
-            for i in range(cons.kfold):
-                end_point = start_point + fold_size
-                if i < data_size % cons.kfold:
-                    end_point += 1
-                self.folds[i] = self.trainFormatted[start_point:end_point]
-                start_point = end_point
-                fold_class_counts = [0] * len(self.phenotypeList)
-                for instance in self.folds[i]:
-                    fold_class_counts[self.phenotypeList.index(instance[1])] += 1
-                for j in range(len(self.phenotypeList)):
-                    if fold_class_counts[j] == class_counts[j]:
-                        random.shuffle(self.trainFormatted)
-                        split_again = True
-
-    def splitFolds2(self):
-        """ divide data set into kfold sets. """
-        self.trainFormatted = stratify(self.trainFormatted)
         data_size = len(self.trainFormatted)
         self.folds = [[] for _ in range(cons.kfold)]
         for fold_id in range(cons.kfold):
@@ -345,31 +318,3 @@ class DataManagement:
         self.numTestphenotypes = len(self.formatted_test_data)
         print("DataManagement: Number of Instances = " + str(self.numTrainphenotypes))
         print("DataManagement: Number of Instances = " + str(self.numTestphenotypes))
-
-
-def stratify(all_data):
-    """ divide data set into kfold sets. """
-    # sort by class
-    index = 1
-    numb_instances = len(all_data)
-    while index < numb_instances:
-        instance1 = all_data[index - 1]
-        for j in range(index, numb_instances):
-            instance2 = all_data[j]
-            if instance1[1] == instance2[1]:
-                # swap(index, j)
-                temp = all_data[index]
-                all_data[index] = all_data[j]
-                all_data[j] = temp
-                index += 1
-        index += 1
-    # rearrange classes to kfold trunks.
-    stratified_data = []
-    start = 0
-    while len(stratified_data) < numb_instances:
-        j = start
-        while j < numb_instances:
-            stratified_data.append(all_data[j])
-            j += cons.kfold
-        start += 1
-    return stratified_data

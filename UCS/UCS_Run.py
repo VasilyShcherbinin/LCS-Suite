@@ -66,7 +66,7 @@ if __name__ == '__main__':
     t0 = time.clock()
     if cons.kfold > 0:
         total_instances = env.formatData.numTrainphenotypes
-        env.formatData.splitFolds2()
+        env.formatData.splitDataIntoKSets()
         accurate_numbs = [0.0] * cons.kfold
         for i in range(cons.kfold):
             env.formatData.selectTrainTestSets(i)

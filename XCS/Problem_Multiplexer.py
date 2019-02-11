@@ -119,7 +119,7 @@ if __name__ == '__main__':
         return None
 
 
-    bits = 6
+    bits = 11
     instances = 10
 
     generate_complete_multiplexer_data(str(bits) + "Multiplexer_Data_Complete.txt", bits)  # 3,6,11,20,37

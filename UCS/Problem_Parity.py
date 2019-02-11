@@ -113,7 +113,7 @@ if __name__ == '__main__':
             return bits
         return None
 
-    bits = 6
+    bits = 11
     instances = 10
 
     #generate_parity_data(str(bits)+"-"+str(instances)+"Parity_Data.txt", bits, instances)
