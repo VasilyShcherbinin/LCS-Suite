@@ -108,7 +108,7 @@ if __name__ == '__main__':
             return bits
         return None
 
-    bits = 6
+    bits = 8
     instances = 10
 
     # generate_position_data(str(bits)+"-"+str(instances)+"Position_Data.txt", bits, instances)

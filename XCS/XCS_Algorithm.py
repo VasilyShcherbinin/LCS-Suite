@@ -58,7 +58,7 @@ class XCS:
         # -------------------------------------------------------
         # MAJOR LEARNING LOOP
         # -------------------------------------------------------
-        while self.iteration < cons.maxLearningIterations and trackedAccuracy < 1: #possibly comment this out?! Continue learning even if accuracy = 1
+        while self.iteration < cons.maxLearningIterations: #and trackedAccuracy < 1: #possibly comment this out?! Continue learning even if accuracy = 1
             # -------------------------------------------------------
             # GET NEW INSTANCE AND RUN A LEARNING ITERATION
             # -------------------------------------------------------

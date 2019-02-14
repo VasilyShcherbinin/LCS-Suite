@@ -32,6 +32,10 @@ from UCS.UCS_Constants import *
 # -------------------------------------
 
 class OutputFileManager:
+
+    totalPopulationSize = 0
+    totalAverage = 0
+
     def writePopStats(self, outFile, trainEval, testEval, exploreIter, pop, correct):
         """ Makes output text file which includes all of the evaluation statistics for a complete analysis of all training and testing data on the current LCS rule population. """
         try:
@@ -134,6 +138,10 @@ class OutputFileManager:
             "phenotype\tFitness\tAccuracy\tNumerosity\tAveMatchSetSize\tTimeStampGA\tInitTimeStamp\tSpecificity\tDeletionProb\tCorrectCount\tMatchCount\n")
 
         # Write each classifier--------------------------------------------------------------------------------------------------------------------------------------
+
+        OutputFileManager.totalPopulationSize = len(pop.popSet)
+        OutputFileManager.totalAverage += len(pop.popSet)
+        print(len(pop.popSet))
         for cl in pop.popSet:
             rulePopOut.write(str(cl.printClassifier()))
 

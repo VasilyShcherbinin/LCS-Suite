@@ -514,7 +514,6 @@ class ClassifierSet:
     def runPopAveEval(self, exploreIter):
         """ Calculates some summary evaluations across the rule population including average generality. """
         genSum = 0
-        agedCount = 0
         for cl in self.popSet:
             genSum += ((cons.env.formatData.numAttributes - len(cl.condition)) / float(cons.env.formatData.numAttributes)) * cl.numerosity
         if self.microPopSize == 0:

@@ -92,7 +92,7 @@ class UCS:
         # MAJOR LEARNING LOOP
         # -------------------------------------------------------
         t0 = time.clock()
-        while self.exploreIter < cons.maxLearningIterations and trackedAccuracy < 1:
+        while self.exploreIter < cons.maxLearningIterations: #and trackedAccuracy < 1:
 
             # -------------------------------------------------------
             # GET NEW phenotype AND RUN A LEARNING ITERATION

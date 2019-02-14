@@ -1,0 +1,4 @@
+ Accuracy: 0.78125 Total time: 114.03 Rules: 360
+ Total Av. Rules: 247.06666666666666
+ Accuracy: 0.78125 Total time: 114.62 Rules: 365
+ Total Av. Rules: 488.4
