@@ -85,11 +85,10 @@ def mainRun():
     print("Total run time in seconds: %.2f" % total)
     f = open("RESULTS_FILE.txt", 'a')
     f.write(" Accuracy: " + str(kfold_accuracy) + " Total time: " + str(total) + " Rules: " + str(OutputFileManager.totalPopulationSize) + "\n")
-    f.write(" Total Av. Rules: " + str(OutputFileManager.totalAverage / 15) + "\n")
 
 if __name__ == '__main__':
 
-    for i in range(15):
+    for i in range(10):
         mainRun()
 
 
