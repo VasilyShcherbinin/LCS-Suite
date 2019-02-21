@@ -66,7 +66,7 @@ def mainRun():
         accurate_numbs = [0.0] * cons.kfold
         for i in range(cons.kfold):
             print("")
-            print("Starting next XCS learning iteration...")
+            print("Starting next UCS learning iteration...")
             print("KFOLD-FOLD: " + str(i))
             env.formatData.selectTrainTestSets(i)
             cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.

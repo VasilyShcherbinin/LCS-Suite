@@ -1,10 +1,203 @@
- Accuracy: 0.90625 Total time: 33.04 Rules: 199
- Accuracy: 0.921875 Total time: 34.97 Rules: 194
- Accuracy: 0.859375 Total time: 35.2 Rules: 197
- Accuracy: 0.859375 Total time: 36.26 Rules: 193
- Accuracy: 0.890625 Total time: 34.05 Rules: 205
- Accuracy: 0.875 Total time: 34.18 Rules: 201
- Accuracy: 0.921875 Total time: 34.91 Rules: 218
- Accuracy: 0.90625 Total time: 35.54 Rules: 202
- Accuracy: 0.890625 Total time: 35.22 Rules: 205
- Accuracy: 0.828125 Total time: 37.87 Rules: 216
+nu =1
+
+
+ Accuracy: 0.93359375 Total time: 136.91 Rules: 923
+ Accuracy: 0.94287109375 Total time: 143.58 Rules: 914
+ Accuracy: 0.935546875 Total time: 146.12 Rules: 880
+ Accuracy: 0.94873046875 Total time: 145.06 Rules: 907
+ Accuracy: 0.943359375 Total time: 134.69 Rules: 910
+ Accuracy: 0.939453125 Total time: 135.39 Rules: 904
+ Accuracy: 0.93359375 Total time: 134.24 Rules: 908
+ Accuracy: 0.92529296875 Total time: 135.14 Rules: 913
+ Accuracy: 0.91455078125 Total time: 136.79 Rules: 904
+
+nu=2
+ Accuracy: 0.95361328125 Total time: 129.69 Rules: 879
+ Accuracy: 0.94140625 Total time: 131.53 Rules: 898
+ Accuracy: 0.9443359375 Total time: 132.78 Rules: 870
+ Accuracy: 0.94482421875 Total time: 131.83 Rules: 890
+ Accuracy: 0.9443359375 Total time: 129.94 Rules: 866
+ Accuracy: 0.94091796875 Total time: 125.98 Rules: 885
+ Accuracy: 0.93994140625 Total time: 127.75 Rules: 875
+
+nu=3
+ Accuracy: 0.95068359375 Total time: 126.32 Rules: 865
+ Accuracy: 0.95654296875 Total time: 126.32 Rules: 834
+ Accuracy: 0.95361328125 Total time: 129.78 Rules: 869
+ Accuracy: 0.9599609375 Total time: 130.38 Rules: 860
+ Accuracy: 0.95654296875 Total time: 131.62 Rules: 870
+ Accuracy: 0.95751953125 Total time: 131.75 Rules: 866
+ Accuracy: 0.95849609375 Total time: 134.42 Rules: 866
+ Accuracy: 0.9619140625 Total time: 131.74 Rules: 856
+ Accuracy: 0.9619140625 Total time: 133.82 Rules: 868
+ Accuracy: 0.9541015625 Total time: 132.4 Rules: 863
+
+ nu=4
+
+ Accuracy: 0.96044921875 Total time: 125.99 Rules: 863
+ Accuracy: 0.9609375 Total time: 128.69 Rules: 777
+ Accuracy: 0.96484375 Total time: 125.01 Rules: 841
+ Accuracy: 0.970703125 Total time: 125.29 Rules: 859
+ Accuracy: 0.966796875 Total time: 122.01 Rules: 845
+ Accuracy: 0.96826171875 Total time: 126.31 Rules: 843
+ Accuracy: 0.96923828125 Total time: 125.37 Rules: 858
+ Accuracy: 0.96923828125 Total time: 124.37 Rules: 839
+
+nu=5
+ Accuracy: 0.9736328125 Total time: 123.91 Rules: 831
+ Accuracy: 0.96923828125 Total time: 118.52 Rules: 825
+ Accuracy: 0.97265625 Total time: 122.51 Rules: 849
+ Accuracy: 0.9677734375 Total time: 119.08 Rules: 746
+ Accuracy: 0.97216796875 Total time: 118.23 Rules: 828
+ Accuracy: 0.9638671875 Total time: 121.05 Rules: 842
+ Accuracy: 0.96875 Total time: 125.92 Rules: 848
+ Accuracy: 0.96728515625 Total time: 117.62 Rules: 835
+ Accuracy: 0.96337890625 Total time: 121.59 Rules: 845
+ Accuracy: 0.9697265625 Total time: 131.53 Rules: 836
+
+I=640000
+ Accuracy: 0.97998046875 Total time: 6239.05 Rules: 835
+
+ i=320000
+
+ Accuracy: 0.9765625 Total time: 3164.74 Rules: 826
+
+ i = 20000
+ Accuracy: 0.9716796875 Total time: 213.75 Rules: 836
+ Accuracy: 0.978515625 Total time: 224.05 Rules: 840
+ Accuracy: 0.978515625 Total time: 217.57 Rules: 847
+ Accuracy: 0.974609375 Total time: 212.95 Rules: 840
+
+Parity-Best-500
+ Accuracy: 0.4912109375 Total time: 95.41 Rules: 495
+ Accuracy: 0.48681640625 Total time: 96.04 Rules: 496
+ Accuracy: 0.48095703125 Total time: 96.13 Rules: 497
+ Accuracy: 0.49609375 Total time: 98.31 Rules: 495
+ Accuracy: 0.48681640625 Total time: 97.74 Rules: 496
+ Accuracy: 0.47802734375 Total time: 99.01 Rules: 499
+
+ Parity-Best-1000
+ 
+ Accuracy: 0.47412109375 Total time: 192.76 Rules: 992
+ Accuracy: 0.47021484375 Total time: 192.84 Rules: 993
+ Accuracy: 0.455078125 Total time: 192.0 Rules: 995
+ Accuracy: 0.48095703125 Total time: 210.28 Rules: 996
+ Accuracy: 0.47509765625 Total time: 197.43 Rules: 988
+ Accuracy: 0.46533203125 Total time: 196.53 Rules: 995
+
+ nu=6
+ Accuracy: 0.9765625 Total time: 113.45 Rules: 818
+ Accuracy: 0.97607421875 Total time: 113.51 Rules: 753
+ Accuracy: 0.97705078125 Total time: 115.36 Rules: 814
+ Accuracy: 0.9794921875 Total time: 114.44 Rules: 818
+ Accuracy: 0.97705078125 Total time: 126.73 Rules: 814
+ Accuracy: 0.9765625 Total time: 113.68 Rules: 822
+ Accuracy: 0.98095703125 Total time: 111.87 Rules: 824
+ Accuracy: 0.97216796875 Total time: 116.25 Rules: 824
+ Accuracy: 0.9775390625 Total time: 113.76 Rules: 846
+ Accuracy: 0.9765625 Total time: 111.78 Rules: 747
+
+nu7 Accuracy: 0.97998046875 Total time: 112.17 Rules: 753
+ Accuracy: 0.97705078125 Total time: 110.44 Rules: 795
+ Accuracy: 0.9794921875 Total time: 111.7 Rules: 806
+ Accuracy: 0.9814453125 Total time: 110.63 Rules: 805
+ Accuracy: 0.97802734375 Total time: 108.88 Rules: 767
+ Accuracy: 0.97998046875 Total time: 109.82 Rules: 741
+ Accuracy: 0.97998046875 Total time: 109.86 Rules: 812
+ Accuracy: 0.9765625 Total time: 110.61 Rules: 697
+
+nu8
+ Accuracy: 0.9755859375 Total time: 112.43 Rules: 820
+ Accuracy: 0.9750833301497555 Total time: 110.11 Rules: 803
+ Accuracy: 0.98046875 Total time: 110.85 Rules: 817
+ Accuracy: 0.9731265797334558 Total time: 113.23 Rules: 825
+ Accuracy: 0.9677734375 Total time: 109.93 Rules: 829
+ Accuracy: 0.9775390625 Total time: 110.06 Rules: 714
+ Accuracy: 0.9736328125 Total time: 109.77 Rules: 674
+ Accuracy: 0.97607421875 Total time: 108.65 Rules: 814
+ Accuracy: 0.978515625 Total time: 111.68 Rules: 808
+ Accuracy: 0.974609375 Total time: 112.19 Rules: 808
+
+nu9
+ Accuracy: 0.97998046875 Total time: 111.71 Rules: 712
+ Accuracy: 0.97314453125 Total time: 110.55 Rules: 758
+ Accuracy: 0.98388671875 Total time: 110.25 Rules: 796
+ Accuracy: 0.9701992857689952 Total time: 113.02 Rules: 701
+ Accuracy: 0.97607421875 Total time: 115.92 Rules: 787
+ Accuracy: 0.97998046875 Total time: 119.26 Rules: 823
+ Accuracy: 0.978515625 Total time: 114.99 Rules: 773
+ Accuracy: 0.97998046875 Total time: 116.26 Rules: 818
+ Accuracy: 0.97802734375 Total time: 112.74 Rules: 769
+ Accuracy: 0.97607421875 Total time: 116.53 Rules: 812
+
+nu10
+ Accuracy: 0.97802734375 Total time: 106.22 Rules: 734
+ Accuracy: 0.9838771680165037 Total time: 110.22 Rules: 800
+ Accuracy: 0.97607421875 Total time: 121.9 Rules: 745
+ Accuracy: 0.97021484375 Total time: 113.1 Rules: 817
+ Accuracy: 0.9794838306081907 Total time: 112.48 Rules: 737
+ Accuracy: 0.9736328125 Total time: 108.04 Rules: 747
+ Accuracy: 0.97412109375 Total time: 109.31 Rules: 768
+ Accuracy: 0.978515625 Total time: 112.68 Rules: 830
+ Accuracy: 0.97705078125 Total time: 110.75 Rules: 726
+ Accuracy: 0.974609375 Total time: 113.18 Rules: 735
+
+n=500
+ Accuracy: 0.95556640625 Total time: 66.81 Rules: 404
+ Accuracy: 0.94970703125 Total time: 64.25 Rules: 397
+ Accuracy: 0.95556640625 Total time: 62.68 Rules: 425
+ Accuracy: 0.95947265625 Total time: 62.76 Rules: 421
+ Accuracy: 0.9628726734834558 Total time: 62.95 Rules: 412
+ Accuracy: 0.951171875 Total time: 66.32 Rules: 422
+ Accuracy: 0.9453125 Total time: 67.51 Rules: 403
+ Accuracy: 0.96435546875 Total time: 66.37 Rules: 402
+ Accuracy: 0.95166015625 Total time: 69.27 Rules: 412
+
+n=2000
+ Accuracy: 0.96923828125 Total time: 233.77 Rules: 1728
+ Accuracy: 0.97509765625 Total time: 230.26 Rules: 1437
+ Accuracy: 0.962890625 Total time: 232.58 Rules: 1717
+ Accuracy: 0.97509765625 Total time: 256.96 Rules: 1618
+
+n=4000 Accuracy: 0.9736328125 Total time: 413.81 Rules: 3313
+ Accuracy: 0.974609375 Total time: 407.75 Rules: 3533
+ Accuracy: 0.97705078125 Total time: 468.01 Rules: 3452
+ Accuracy: 0.9716796875 Total time: 448.17 Rules: 3263
+
+n=8000
+ Accuracy: 0.97509765625 Total time: 599.64 Rules: 6472
+
+n=16000
+ Accuracy: 0.9716796875 Total time: 580.1 Rules: 7224
+ Accuracy: 0.97900390625 Total time: 617.49 Rules: 7431
+ Accuracy: 0.97412109375 Total time: 571.03 Rules: 7388
+ Accuracy: 0.9736328125 Total time: 579.52 Rules: 7897
+ Accuracy: 0.98291015625 Total time: 556.82 Rules: 6622
+ Accuracy: 0.97509765625 Total time: 517.22 Rules: 6676
+
+n=32000
+
+ Accuracy: 0.97705078125 Total time: 525.35 Rules: 6531
+ Accuracy: 0.97607421875 Total time: 509.03 Rules: 6746
+ Accuracy: 0.97509765625 Total time: 548.29 Rules: 7678
+ Accuracy: 0.97216796875 Total time: 518.68 Rules: 7391
+ Accuracy: 0.97119140625 Total time: 548.36 Rules: 7332
+ Accuracy: 0.9755859375 Total time: 530.85 Rules: 7438
+ Accuracy: 0.9775390625 Total time: 506.11 Rules: 6987
+ Accuracy: 0.9775390625 Total time: 531.08 Rules: 6717
+ Accuracy: 0.96875 Total time: 529.68 Rules: 8063
+ Accuracy: 0.9775390625 Total time: 548.29 Rules: 7065
+
+FINAL
+
+ Accuracy: 0.9931640625 Total time: 86.82 Rules: 662
+ Accuracy: 0.99267578125 Total time: 84.74 Rules: 676
+ Accuracy: 0.990234375 Total time: 85.86 Rules: 612
+ Accuracy: 0.99169921875 Total time: 83.31 Rules: 682
+ Accuracy: 0.99267578125 Total time: 85.34 Rules: 656
+ Accuracy: 0.99072265625 Total time: 86.4 Rules: 669
+ Accuracy: 0.98974609375 Total time: 87.92 Rules: 669
+ Accuracy: 0.9921875 Total time: 86.77 Rules: 662
+ Accuracy: 0.9921875 Total time: 80.62 Rules: 664
+ Accuracy: 0.99365234375 Total time: 79.79 Rules: 654
+ Accuracy: 0.99072265625 Total time: 81.42 Rules: 665

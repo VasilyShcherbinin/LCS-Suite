@@ -204,7 +204,7 @@ class XCS:
         # RUN THE GENETIC ALGORITHM - Discover new offspring rules from a selected pair of parents
         # -----------------------------------------------------------------------------------------------------------------------------------------
         self.population.runGA(self.iteration, phenotype[0])
-        # self.population.clearSets() #Clears the match and action sets (done in runGA)
+        self.population.clearSets() #Clears the match and action sets (done in runGA)
 
     def doPopEvaluation(self, is_train):
         """ Performs a complete evaluation of the current rule population.  The population is unchanged throughout this evaluation. Works on both training and testing data. """

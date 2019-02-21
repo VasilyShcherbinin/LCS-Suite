@@ -1,1 +1,14 @@
  Accuracy: 0.828125 Total time: 237.58
+ Accuracy: 0.84375 Total time: 57.72
+ Accuracy: 0.84375 Total time: 56.65
+ Accuracy: 0.828125 Total time: 40.32
+ Accuracy: 0.828125 Total time: 40.79
+ Accuracy: 0.828125 Total time: 40.15
+ Accuracy: 0.828125 Total time: 40.29
+ Accuracy: 0.828125 Total time: 39.23
+ Accuracy: 0.6064453125 Total time: 264.23
+ Accuracy: 0.6064453125 Total time: 268.67
+ Accuracy: 0.6064453125 Total time: 271.76
+ Accuracy: 0.6064453125 Total time: 266.62
+ Accuracy: 0.6064453125 Total time: 275.68
+ Accuracy: 0.828125 Total time: 39.15

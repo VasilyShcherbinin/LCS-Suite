@@ -191,7 +191,6 @@ class ClassifierSet:
         # -------------------------------------------------------
         if (
                 iteration - self.getIterStampAverage()) < cons.theta_GA:  # Does the action set meet the requirements for activating the GA?
-            self.clearSets()
             return
 
         self.setIterStamps(
@@ -302,48 +301,6 @@ class ClassifierSet:
                 set_list.remove(best_cl)
 
         return selected_list
-
-    # def selectClassifierUsingIqbalTournamentSel(self):
-    #     winnerSet = []
-    #     fitness = -1.0
-    #     select_tolerance = 0
-    #
-    #     # there must be at least one classifier in the set
-    #     # if classifierset==None or len(classifierset)==0:
-    #     #    print "in selectClassifierUsingIqbalTournamentSel classifierset mustn't be None"
-    #
-    #     # only one classifier in set
-    #     if len(self.action_set) == 1:
-    #         return self.action_set[0]
-    #
-    #     # tournament with fixed size
-    #     # tournament selection with the tournament size approx. equal to tournamentSize setsum
-    #     while len(winnerSet) == 0:
-    #         for i in self.action_set:
-    #             # if his fitness is worse then do not bother
-    #             if len(winnerSet) == 0 or (fitness - select_tolerance) <= self.pop_set[i].fitness/self.pop_set[i].numerosity:
-    #                 for j in range(0, self.pop_set[i].numerosity):
-    #                     if random.random() < cons.theta_sel:
-    #                         if len(winnerSet) == 0:
-    #                             # the first one
-    #                             winnerSet.append(i)
-    #                             fitness = self.pop_set[i].fitness/self.pop_set[i].numerosity
-    #
-    #                         else:
-    #                             if (fitness + select_tolerance) > self.pop_set[i].fitness/self.pop_set[i].numerosity:
-    #                                 winnerSet.append(i)
-    #
-    #                             else:
-    #                                 winnerSet = []
-    #                                 winnerSet.append(i)
-    #                                 fitness = self.pop_set[i].fitness/self.pop_set[i].numerosity
-    #                         break
-    #
-    #         # print winnerSet
-    #     if len(winnerSet) > 1:
-    #         size = random.randint(0, len(winnerSet) - 1)
-    #         return winnerSet[size]
-    #     return winnerSet[0]
 
     # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     # SUBSUMPTION METHODS
@@ -465,9 +422,12 @@ class ClassifierSet:
         """ Returns the average of the time stamps in the match set. """
         sum_cl = 0.0
         sum_numer = 0.0
-        for ref in self.actionSet:
+
+        for i in range(len(self.actionSet)):
+            ref = self.actionSet[i]
             sum_cl += self.population[ref].gaTimestamp * self.population[ref].numerosity
-            sum_numer += self.population[ref].numerosity  # numerosity sum of match set
+            sum_numer += self.population[ref].numerosity  # numerosity sum of match set:
+
         return sum_cl / float(sum_numer)
 
     def setIterStamps(self, iteration):

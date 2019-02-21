@@ -117,7 +117,8 @@ class ClassifierSet:
                     if cl.phenotype == phenotype:  # Check for phenotype coverage
                         doCovering = False
                 else:  # Continuous phenotype
-                    if float(cl.phenotype[0]) <= float(phenotype) <= float(cl.phenotype[1]):  # Check for phenotype coverage
+                    if float(cl.phenotype[0]) <= float(phenotype) <= float(
+                            cl.phenotype[1]):  # Check for phenotype coverage
                         doCovering = False
         cons.timer.stopTimeMatching()
 
@@ -472,6 +473,7 @@ class ClassifierSet:
             ref = self.correctSet[i]
             sumCl += self.popSet[ref].timeStampGA * self.popSet[ref].numerosity
             numSum += self.popSet[ref].numerosity  # numerosity sum of correct set
+
         return sumCl / float(numSum)
 
     def setIterStamps(self, exploreIter):
@@ -515,7 +517,8 @@ class ClassifierSet:
         """ Calculates some summary evaluations across the rule population including average generality. """
         genSum = 0
         for cl in self.popSet:
-            genSum += ((cons.env.formatData.numAttributes - len(cl.condition)) / float(cons.env.formatData.numAttributes)) * cl.numerosity
+            genSum += ((cons.env.formatData.numAttributes - len(cl.condition)) / float(
+                cons.env.formatData.numAttributes)) * cl.numerosity
         if self.microPopSize == 0:
             self.aveGenerality = 'NA'
         else:

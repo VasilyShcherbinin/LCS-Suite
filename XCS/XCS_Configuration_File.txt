@@ -4,12 +4,12 @@
 ###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 datasetDirectory=Demo_Datasets			    # Directory/Path of training and testing datasets (assumes they are in the same directory)
-trainFile=8Position_Data_Complete.txt	# Path/FileName of training dataset
+trainFile=11Position_Data_Complete.txt	# Path/FileName of training dataset
 testFile=None								# Path/FileName of testing dataset.  If no testing data available or desired, put 'None'.
 outputDirectory=Local_Output					# Path/NewName for new algorithm output files. Note: Do not give a file extension, this is done automatically.
 outputFile=ExampleRun							# FileName of output files.
-learningIterations=100000						# Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
-N=1600											# Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
+learningIterations=10000						# Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
+N=1000											# Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
 p_spec=0.7									    # The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
 kfold=5									        # if not used, set to 0.
 
@@ -34,7 +34,7 @@ mu=0.04											# (u) The probability of mutating an allele within an offsprin
 offset_epsilon=10.0								# epsilon 0, offset for classifier's error, used for calculating classifier's accuracy
 alpha=0.1										# coefficient for calculating classifier's accuracy
 theta_GA=25										# The GA threshold; The GA is applied in a set when the average time since the last GA in the set is greater than theta_GA.
-theta_mna=2										# The minimal number of actions in match set, typical set to number of phenotypes
+theta_mna=10									# The minimal number of actions in match set, typical set to number of phenotypes
 theta_del=20									# The deletion experience threshold; The calculation of the deletion probability changes once this threshold is passed.
 theta_sub=20									# The subsumption experience threshold; large enough to avoid overgeneral classifiers.
 error_sub=10									# Subsumption accuracy requirement
