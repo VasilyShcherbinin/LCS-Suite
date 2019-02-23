@@ -244,7 +244,7 @@ class Classifier:
         # -------------------------------------------------------
         for att in range(
                 cons.env.format_data.numAttributes):  # Each condition specifies different attributes, so we need to go through all attributes in the dataset.
-            if random.random() < cons.mu and state[att] != cons.labelMissingData:
+            if random.random() < cons.upsilon and state[att] != cons.labelMissingData:
                 # MUTATION--------------------------------------------------------------------------------------------------------------
                 if att not in self.specifiedAttributes:  # Attribute not yet specified
                     self.specifiedAttributes.append(att)
@@ -264,7 +264,7 @@ class Classifier:
         # -------------------------------------------------------
         # MUTATE PHENOTYPE
         # -------------------------------------------------------
-        if random.random() < cons.mu:
+        if random.random() < cons.upsilon:
             phenotypeList = cons.env.format_data.phenotypeList[:]
             phenotypeList.remove(self.action)
             self.action = random.choice(phenotypeList)
@@ -274,7 +274,7 @@ class Classifier:
     def discreteActionMutation(self):
         """ Mutate this rule's discrete phenotype. """
         changed = False
-        if random.random() < cons.mu:
+        if random.random() < cons.upsilon:
             phenotypeList = cons.env.format_data.phenotypeList[:]
             phenotypeList.remove(self.action)
             self.action = random.choice(phenotypeList)
@@ -284,7 +284,7 @@ class Classifier:
     def continuousActionMutation(self, phenotype):
         """ Mutate this rule's continuous phenotype. """
         changed = False
-        if random.random() < cons.mu:  # Mutate continuous phenotype
+        if random.random() < cons.upsilon:  # Mutate continuous phenotype
             action_range = self.action[1] - self.action[0]
             mutate_range = random.random() * 0.5 * action_range
             tmp_key = random.randint(0,

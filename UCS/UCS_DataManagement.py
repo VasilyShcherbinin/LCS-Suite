@@ -351,5 +351,5 @@ class DataManagement:
         self.testFormatted = self.folds[fold_id]
         self.numTrainphenotypes = len(self.trainFormatted)
         self.numTestphenotypes = len(self.testFormatted)
-        print("DataManagement: Number of Instances = " + str(self.numTrainphenotypes))
-        print("DataManagement: Number of Instances = " + str(self.numTestphenotypes))
+        print("DataManagement: Number of Train Instances = " + str(self.numTrainphenotypes))
+        print("DataManagement: Number of Test Instances = " + str(self.numTestphenotypes))

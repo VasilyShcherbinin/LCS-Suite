@@ -9,6 +9,7 @@ from XCS.XCS_ConfigParser import ConfigParser
 from XCS.XCS_Constants import cons
 from XCS.XCS_Offline_Environment import Offline_Environment
 from XCS.XCS_Timer import Timer
+from XCS.XCS_OutputFileManager import OutputFileManager
 
 
 def mainRun():
@@ -24,7 +25,7 @@ def mainRun():
     if cons.useSeed:
         random.seed(cons.randomSeed)
     else:
-        random.seed(datetime.time())
+        random.seed(datetime.datetime.now().microsecond)
     # Initialize the 'Environment' module which manages the data presented to the algorithm.  While e-LCS learns iteratively (one inistance at a time
     env = Offline_Environment()
     cons.referenceEnv(
@@ -48,7 +49,7 @@ def mainRun():
         for i in range(cons.kfold):
             print("")
             print("Starting next XCS learning iteration...")
-            print("KFOLD-FOLD: " + str(i))
+            print("K-FOLD: " + str(i))
             env.format_data.selectTrainTestSets(i)
             cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
             XCS().run_XCS()
@@ -64,7 +65,7 @@ def mainRun():
     total = round(total, 2)
     print("Total run time in seconds: %.2f" % total)
     f = open("RESULTS_FILE.txt", 'a')
-    f.write(" Accuracy: " + str(kfold_accuracy) + " Total time: " + str(total) + "\n")
+    f.write(" Accuracy: " + str(kfold_accuracy) + " Total time: " + str(total) + " Rules: " + str(OutputFileManager.totalPopulationSize) + "\n")
 
 # -----------------------------------------------------------
 # Function to parse arguments--------------------------------

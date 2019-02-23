@@ -4,7 +4,7 @@
 ###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 datasetDirectory=Demo_Datasets			    # Directory/Path of training and testing datasets (assumes they are in the same directory)
-trainFile=11Position_Data_Complete.txt	# Path/FileName of training dataset
+trainFile=6Position_Data_Complete.txt	# Path/FileName of training dataset
 testFile=None								# Path/FileName of testing dataset.  If no testing data available or desired, put 'None'.
 outputDirectory=Local_Output					# Path/NewName for new algorithm output files. Note: Do not give a file extension, this is done automatically.
 outputFile=ExampleRun							# FileName of output files.
@@ -16,7 +16,7 @@ kfold=5									        # if not used, set to 0.
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### Logistical Run Parameters
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-randomSeed=2018									# Set a constant random seed value to some integer (in order to obtain reproducible results). Put 'False' if none (for pseudo-random algorithm runs).
+randomSeed=False									# Set a constant random seed value to some integer (in order to obtain reproducible results). Put 'False' if none (for pseudo-random algorithm runs).
 labelphenotypeID=phenotypeID						# Label for the data column header containing instance ID's.  If included label not found, algorithm assumes that no instance ID's were included.
 labelphenotype=Class								# Label for the data column header containing the phenotype label. (Typically 'Class' for case/control datasets)
 labelMissingData=NA								# Label used for any missing data in the data set.
@@ -27,10 +27,10 @@ trackingFrequency=0							    # Specifies the number of iterations before each e
 ###### Learning Parameters - Generally just use default values.
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 nu=5.0											# (v) Power parameter used to determine the importance of high accuracy when calculating fitness. (typically set to 5, recommended setting of 1 in noisy data)
-gamma=0.71										# Reinforcement Learning factor
+gamma=0										    # Reinforcement Learning factor
 chi=0.8											# (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
 phi=0.5											# If total prediction in matchset is less than phi times the mean prediction of population, covering occurs - not used.
-mu=0.04											# (u) The probability of mutating an allele within an offspring.(typically set to 0.01-0.05)
+upsilon=0.4											# (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
 offset_epsilon=10.0								# epsilon 0, offset for classifier's error, used for calculating classifier's accuracy
 alpha=0.1										# coefficient for calculating classifier's accuracy
 theta_GA=25										# The GA threshold; The GA is applied in a set when the average time since the last GA in the set is greater than theta_GA.

@@ -67,7 +67,7 @@ def mainRun():
         for i in range(cons.kfold):
             print("")
             print("Starting next UCS learning iteration...")
-            print("KFOLD-FOLD: " + str(i))
+            print("K-FOLD: " + str(i))
             env.formatData.selectTrainTestSets(i)
             cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
             UCS()

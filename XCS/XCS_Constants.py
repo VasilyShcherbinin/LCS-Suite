@@ -39,7 +39,7 @@ class Constants:
         self.nu = float(par['nu'])  # Saved as integer
         self.chi = float(par['chi'])  # Saved as float
         self.phi = float(par['phi'])  # Saved as float
-        self.mu = float(par['mu'])  # Saved as float
+        self.upsilon = float(par['upsilon'])  # Saved as float
         self.offset_epsilon = float(par['offset_epsilon'])  # Saved as float
         self.alpha = float(par['alpha'])  # Saved as float
         self.gamma = float(par['gamma'])  # Saved as float

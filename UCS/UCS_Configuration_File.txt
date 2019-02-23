@@ -4,7 +4,7 @@
 ###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 datasetDirectory=Demo_Datasets					# Directory/Path of training and testing datasets (assumes they are in the same directory)
-trainFile=11Multiplexer_Data_Complete.txt		# FileName of training dataset
+trainFile=11Position_Data_Complete.txt		# FileName of training dataset
 testFile=None									# FileName of testing dataset.  If no testing data available or desired, put 'None'.
 outputDirectory=Local_Output					# Output file directory
 outputFile=ExampleRun							# FileName of output files.

@@ -5,6 +5,9 @@ from XCS.XCS_Constants import *
 # -------------------------------------
 
 class OutputFileManager:
+
+    totalPopulationSize = 0
+
     def writePopStats(self, outFileName, train_eval, test_eval, iteration, pop, correct):
         """ Makes output text file which includes all of the evaluation statistics for a complete analysis of all training and testing data on the current XCS rule population. """
         try:
@@ -104,11 +107,12 @@ class OutputFileManager:
         for i in range(len(headers)):
             rule_pop_out.write(str(headers[i]) + "\t")
         rule_pop_out.write(
-            "Action\tPredic\t Error\tFitne\t Num\tASSize\tGATimeSt\tInitTime\tSpec\tDeleteProb\t   ASCnt\n")
+            "phenotype\tFitness\tAccuracy\tNumerosity\tAveMatchSetSize\tTimeStampGA\tInitTimeStamp\tSpecificity\tDeletionProb\tCorrectCount\tMatchCount\n")
 
         # sort classifiers based on numerosity-----------------------------------------------------------------------------------------------------------------------
         sorted_pop = sorted(pop.population, key=lambda x: x.numerosity, reverse=True)
         # Write each classifier--------------------------------------------------------------------------------------------------------------------------------------
+        OutputFileManager.totalPopulationSize = len(pop.population)
         for cl in sorted_pop:
             rule_pop_out.write(str(cl.printClassifier()))
 

@@ -201,3 +201,5 @@ FINAL
  Accuracy: 0.9921875 Total time: 80.62 Rules: 664
  Accuracy: 0.99365234375 Total time: 79.79 Rules: 654
  Accuracy: 0.99072265625 Total time: 81.42 Rules: 665
+ Accuracy: 0.99072265625 Total time: 86.39 Rules: 672
+ Accuracy: 0.98876953125 Total time: 88.47 Rules: 672

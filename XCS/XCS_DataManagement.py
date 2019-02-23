@@ -290,7 +290,7 @@ class DataManagement:
             else:
                 pass  # instance ID neither given nor required.
             # -----------------------------------------------------------
-        # random.shuffle(formatted) #One time randomization of the order the of the instances in the data, so that if the data was ordered by phenotype, this potential learning bias (based on instance ordering) is eliminated.
+        random.shuffle(formatted) #One time randomization of the order the of the instances in the data, so that if the data was ordered by phenotype, this potential learning bias (based on instance ordering) is eliminated.
         return formatted
 
     def splitDataIntoKSets(self):
@@ -307,6 +307,7 @@ class DataManagement:
             first = fold_id * (int(data_size / cons.kfold)) + offset
             self.folds[fold_id] = self.trainFormatted[first: (first + fold_size)]
 
+
     def selectTrainTestSets(self, fold_id):
         """ select subset for testing and the rest for training. """
         self.trainFormatted = []
@@ -316,5 +317,5 @@ class DataManagement:
         self.formatted_test_data = self.folds[fold_id]
         self.numTrainphenotypes = len(self.trainFormatted)
         self.numTestphenotypes = len(self.formatted_test_data)
-        print("DataManagement: Number of Instances = " + str(self.numTrainphenotypes))
-        print("DataManagement: Number of Instances = " + str(self.numTestphenotypes))
+        print("DataManagement: Number of Train Instances = " + str(self.numTrainphenotypes))
+        print("DataManagement: Number of Test Instances = " + str(self.numTestphenotypes))
