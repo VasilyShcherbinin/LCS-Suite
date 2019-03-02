@@ -510,6 +510,8 @@ class ClassifierSet:
         while i < len(self.population):
             cl = self.population[i]
             if cl.action_cnt <= cons.theta_del or cl.error >= cons.e0: #error threshold e0
+            #if cl.error >= cons.e0:  # error threshold e0 -> I am going to remove inaccurate classifiers, but leave the inexperienced.
+                                    # This gives better accuracy, but too many rules for "people comprehension, i.e. 80. 64%
                 self.micro_size -= cl.numerosity
                 self.population.pop(i)
             else:

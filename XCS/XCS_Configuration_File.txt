@@ -27,7 +27,7 @@ trackingFrequency=0							    # Specifies the number of iterations before each e
 ###### Learning Parameters - Generally just use default values.
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 nu=5											# (v) Power parameter used to determine the importance of high accuracy when calculating fitness. (typically set to 5, recommended setting of 1 in noisy data)
-chi=0.8										# (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
+chi=0.8										    # (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
 gamma=0										    # Reinforcement Learning factor
 phi=0											# If total prediction in matchset is less than phi times the mean prediction of population, covering occurs - not used.
 upsilon=0.4										# (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
@@ -55,7 +55,7 @@ doActionSetSubsumption=0						# Activate Subsumption? (1 is True, 0 is False).  
 selectionMethod=tournament						# Select GA parent selection strategy ('tournament' or 'roulette')
 differentParent=0								# Force different parents in tournament selection or not
 theta_sel=0.5									# The fraction of the correct set to be included in tournament selection.
-crossoverMethod=uniform                        # option for type of crossover
+crossoverMethod=uniform                         # option for type of crossover
 
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### PopulationReboot - An option to begin e-LCS learning from an existing, saved rule population. Note that the training data is re-shuffled during a reboot.

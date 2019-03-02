@@ -1,3 +1,10 @@
 Rule Compaction XCS
 I = 10000
 
+
+ Accuracy: 0.56494140625 Total time: 91.89 Rules: 6
+ Accuracy: 0.58984375 Total time: 92.94 Rules: 18
+ Accuracy: 0.6123046875 Total time: 92.56 Rules: 9
+ Accuracy: 0.56396484375 Total time: 92.41 Rules: 12
+ Accuracy: 0.60302734375 Total time: 92.17 Rules: 14
+ Accuracy: 0.6201171875 Total time: 92.56 Rules: 4
