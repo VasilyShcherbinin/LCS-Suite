@@ -9,7 +9,7 @@ Output: Position of the left-most one-valued bit.
 
 import random
 
-bits = 11
+bits = 9
 instances = 10
 
 

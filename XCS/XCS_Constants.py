@@ -55,6 +55,7 @@ class Constants:
         self.init_fit = float(par['init_fit'])  # Saved as float
         self.fitness_reduction = float(par['fitnessReduction'])  # Saved as float
         self.exploration = float(par['exploration'])  # Saved as float
+        self.e0 = float(par['e0']) # saved as float
 
         # Algorithm Heuristic Options -------------------------------------------------------------------------------
         self.doGASubsumption = bool(int(par['doGASubsumption']))

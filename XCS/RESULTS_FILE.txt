@@ -1,29 +1,3 @@
- Accuracy: 0.828125 Total time: 237.58
- Accuracy: 0.84375 Total time: 57.72
- Accuracy: 0.84375 Total time: 56.65
- Accuracy: 0.828125 Total time: 40.32
- Accuracy: 0.828125 Total time: 40.79
- Accuracy: 0.828125 Total time: 40.15
- Accuracy: 0.828125 Total time: 40.29
- Accuracy: 0.828125 Total time: 39.23
- Accuracy: 0.6064453125 Total time: 264.23
- Accuracy: 0.6064453125 Total time: 268.67
- Accuracy: 0.6064453125 Total time: 271.76
- Accuracy: 0.6064453125 Total time: 266.62
- Accuracy: 0.6064453125 Total time: 275.68
- Accuracy: 0.828125 Total time: 39.15
- Accuracy: 0.890625 Total time: 36.17
- Rules: 277
- Accuracy: 0.921875 Total time: 35.53
- Rules: 288
- Accuracy: 0.96875 Total time: 40.01
- Rules: 298
- Accuracy: 0.9375 Total time: 35.97
- Rules: 307
- Accuracy: 0.875 Total time: 36.09
- Rules: 235
- Accuracy: 0.9375 Total time: 36.59 Rules: 276
- Accuracy: 0.90625 Total time: 35.88 Rules: 289
- Accuracy: 0.90625 Total time: 35.55 Rules: 248
- Accuracy: 0.9375 Total time: 36.17 Rules: 259
- Accuracy: 0.921875 Total time: 36.04 Rules: 252
+Rule Compaction XCS
+I = 10000
+

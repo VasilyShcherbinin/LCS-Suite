@@ -130,8 +130,8 @@ class UCS:
             cons.env.newphenotype(True)  # Step to next phenotype in training set
 
         # Once LCS has reached the last learning iteration, close the tracking file
-        self.evaluate()
         self.learnTrackOut.close()
+        self.evaluate()
 
         t1 = time.clock()
         total = t1-t0

@@ -4,7 +4,7 @@
 ###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 datasetDirectory=Demo_Datasets			    # Directory/Path of training and testing datasets (assumes they are in the same directory)
-trainFile=6Position_Data_Complete.txt	# Path/FileName of training dataset
+trainFile=11Multiplexer_Data_Complete_Randomized.txt	# Path/FileName of training dataset
 testFile=None								# Path/FileName of testing dataset.  If no testing data available or desired, put 'None'.
 outputDirectory=Local_Output					# Path/NewName for new algorithm output files. Note: Do not give a file extension, this is done automatically.
 outputFile=ExampleRun							# FileName of output files.
@@ -26,8 +26,8 @@ trackingFrequency=0							    # Specifies the number of iterations before each e
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### Learning Parameters - Generally just use default values.
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-nu=5.0											# (v) Power parameter used to determine the importance of high accuracy when calculating fitness. (typically set to 5, recommended setting of 1 in noisy data)
-chi=0.8											# (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
+nu=5											# (v) Power parameter used to determine the importance of high accuracy when calculating fitness. (typically set to 5, recommended setting of 1 in noisy data)
+chi=0.8										# (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
 gamma=0										    # Reinforcement Learning factor
 phi=0											# If total prediction in matchset is less than phi times the mean prediction of population, covering occurs - not used.
 upsilon=0.4										# (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
@@ -45,6 +45,7 @@ init_err=10.0									# The initial prediction error
 init_fit=0.01									# The initial fitness for a new classifier. (typically very small, approaching but not equal to zero)
 fitnessReduction=0.1							# Initial fitness reduction in GA offspring rules.
 exploration=0.5									# Probability to select action by exploration (only support 0.5 or 1 for now).
+e0 = 0.01                                       # Error threshold
 
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### Algorithm Heuristic Options

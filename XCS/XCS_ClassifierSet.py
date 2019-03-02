@@ -503,19 +503,13 @@ class ClassifierSet:
         #     print(("Epoch: "+str(int(iteration/trackingFrequency))+"\t Iteration: " + str(iteration) + "\t MacroPop: " + str(len(self.pop_set))+ "\t MicroPop: " + str(self.micro_size) + "\t AccEstimate: " + str(accuracy) + "\t AveGen: " + str(self.mean_generality) + "\t PhenRange: " +str(self.avg_action_range) + "\t Time: " + str(cons.timer.returnGlobalTimer())))
         return population_info
 
-    def parallelMatching(self, i):  # ( ( indices, condition, state, id ) ):
-        """ used when multiprocessing is enabled. """
-        if self.population[i].doesMatch(self.current_instance):
-            return i
-        return None
-
-    def finalise(self, do_compact=False):
+    def finalise(self, do_compact=True):
         """ Compact the population. """
         ### Remove inexperienced and inaccurate classifiers -------------------------
         i = 0
         while i < len(self.population):
             cl = self.population[i]
-            if cl.action_cnt <= cons.theta_del or cl.error >= 0.0001:
+            if cl.action_cnt <= cons.theta_del or cl.error >= cons.e0: #error threshold e0
                 self.micro_size -= cl.numerosity
                 self.population.pop(i)
             else:

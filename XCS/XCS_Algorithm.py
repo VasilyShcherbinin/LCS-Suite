@@ -126,6 +126,7 @@ class XCS:
         # Once XCS has reached the last learning iteration, close the tracking file
         self.learnTrackOut.close()
         print("XCS Run Complete")
+        self.population.finalise()
         ret_eval = []
         if cons.testFile != 'None' or cons.kfold > 0:  # If a testing file is available.
             if cons.env.format_data.discretephenotype:
@@ -184,6 +185,7 @@ class XCS:
         # -------------------------------------------------------
         if selectedAction == phenotype[1]:
             reward = 1000.0
+
         cons.timer.stopTimeEvaluation()
         # -----------------------------------------------------------------------------------------------------------------------------------------
         # FORM AN ACTION SET

@@ -4,13 +4,13 @@
 ###### Major Run Parameters - Essential to be set correctly for a successful run of the algorithm
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 datasetDirectory=Demo_Datasets					# Directory/Path of training and testing datasets (assumes they are in the same directory)
-trainFile=11Position_Data_Complete.txt		# FileName of training dataset
+trainFile=6Multiplexer_Data_Complete.txt		# FileName of training dataset
 testFile=None									# FileName of testing dataset.  If no testing data available or desired, put 'None'.
 outputDirectory=Local_Output					# Output file directory
 outputFile=ExampleRun							# FileName of output files.
 learningIterations=10000			    # Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
-N=1000									    # Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
-p_spec=0.9									# The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
+N=2000									    # Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
+p_spec=0.8									# The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
 kfold=5									        # if not used, set to 0.
 
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -27,8 +27,8 @@ trackingFrequency=0								# Specifies the number of iterations before each esti
 ###### Supervised Learning Parameters - Generally just use default values.
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 nu=10											# (v) Power parameter used to determine the importance of high accuracy when calculating fitness. (typically set to 5, recommended setting of 1 in noisy data)
-chi=0.7											# (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
-upsilon=0.2									    # (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
+chi=0.8											# (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
+upsilon=0.04									    # (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
 theta_GA=25										# The GA threshold; The GA is applied in a set when the average time since the last GA in the set is greater than theta_GA.
 theta_del=20									# The deletion experience threshold; The calculation of the deletion probability changes once this threshold is passed.
 theta_sub=20									# The subsumption experience threshold;
