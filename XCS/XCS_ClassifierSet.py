@@ -503,7 +503,7 @@ class ClassifierSet:
         #     print(("Epoch: "+str(int(iteration/trackingFrequency))+"\t Iteration: " + str(iteration) + "\t MacroPop: " + str(len(self.pop_set))+ "\t MicroPop: " + str(self.micro_size) + "\t AccEstimate: " + str(accuracy) + "\t AveGen: " + str(self.mean_generality) + "\t PhenRange: " +str(self.avg_action_range) + "\t Time: " + str(cons.timer.returnGlobalTimer())))
         return population_info
 
-    def finalise(self, do_compact=True):
+    def compressPopulation(self, do_compact=True):
         """ Compact the population. """
         ### Remove inexperienced and inaccurate classifiers -------------------------
         i = 0

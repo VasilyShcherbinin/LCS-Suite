@@ -30,7 +30,7 @@ nu=5											# (v) Power parameter used to determine the importance of high ac
 chi=0.8										    # (X) The probability of applying crossover in the GA. (typically set to 0.5-1.0)
 gamma=0										    # Reinforcement Learning factor
 phi=0											# If total prediction in matchset is less than phi times the mean prediction of population, covering occurs - not used.
-upsilon=0.4										# (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
+upsilon=0.1									# (u) The probability of mutating an allele within an offspring.(typically set to 0.1-0.5)
 offset_epsilon=10.0								# epsilon 0, offset for classifier's error, used for calculating classifier's accuracy
 alpha=0.1										# coefficient for calculating classifier's accuracy
 theta_GA=25										# The GA threshold; The GA is applied in a set when the average time since the last GA in the set is greater than theta_GA.
@@ -45,8 +45,8 @@ init_err=10.0									# The initial prediction error
 init_fit=0.01									# The initial fitness for a new classifier. (typically very small, approaching but not equal to zero)
 fitnessReduction=0.1							# Initial fitness reduction in GA offspring rules.
 exploration=0.5									# Probability to select action by exploration (only support 0.5 or 1 for now).
-e0 = 0.01                                       # Error threshold
-
+e0 = 0.05                                       # Error threshold
+#e0 = 10                                       # Error threshold
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###### Algorithm Heuristic Options
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

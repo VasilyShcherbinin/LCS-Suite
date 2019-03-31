@@ -126,7 +126,7 @@ class XCS:
         # Once XCS has reached the last learning iteration, close the tracking file
         self.learnTrackOut.close()
         print("XCS Run Complete")
-        self.population.finalise()
+        self.population.compressPopulation()
         ret_eval = []
         if cons.testFile != 'None' or cons.kfold > 0:  # If a testing file is available.
             if cons.env.format_data.discretephenotype:

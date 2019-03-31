@@ -312,7 +312,7 @@ class Classifier:
 
     def Mutation(self, state, phenotype):
         """ Mutates the condition of the classifier. Also handles phenotype mutation. This is a niche mutation, which means that the resulting classifier will still match the current phenotype.  """
-        changed = False;
+        changed = False
         # -------------------------------------------------------
         # MUTATE CONDITION
         # -------------------------------------------------------
