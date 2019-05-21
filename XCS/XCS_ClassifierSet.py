@@ -102,7 +102,7 @@ class ClassifierSet:
                         match_set.append(self.population[i].action)
 
     def generateActionSet(self, selected_action):
-        """ Constructs a correct set out of the given match set. """
+        """ Constructs an action set out of the given match set. """
         for ref in self.matchSet:
             if self.population[ref].action == selected_action:
                 self.actionSet.append(ref)
@@ -335,8 +335,7 @@ class ClassifierSet:
                                        num_copy=num_copy)  # If no subsumer was found, check for identical classifier, if not then add the classifier to the population
 
     def doActionSetSubsumption(self):
-        """ Executes match set subsumption.  The match set subsumption looks for the most general subsumer classifier in the match set
-        and subsumes all classifiers that are more specific than the selected one. """
+        """ Executes action set subsumption. """
         subsumer = None
         for ref in self.actionSet:
             cl = self.population[ref]
@@ -345,7 +344,7 @@ class ClassifierSet:
                 (len(subsumer.specifiedAttributes) == len(cl.specifiedAttributes) and random.random() < 0.5)):
                     subsumer = cl
 
-        if subsumer != None:  # If a subsumer was found, subsume all more specific classifiers in the match set
+        if subsumer != None:  # If a subsumer was found, subsume all more specific classifiers in the action set
             i = 0
             while i < len(self.actionSet):
                 ref = self.actionSet[i]

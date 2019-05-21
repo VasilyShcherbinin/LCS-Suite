@@ -1,15 +1,3 @@
-"""
-Name:        XCS_Classifier.py
-Authors:     Bao Trung
-Contact:     baotrung@ecs.vuw.ac.nz
-Created:     July, 2017
-Description:
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-XCS: Michigan-style Learning Classifier System - A LCS for Reinforcement Learning.  This XCS follows the version descibed in "An Algorithmic Description of XCS" published by Martin Butz and Stewart Wilson (2002).
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-"""
 
 import random
 

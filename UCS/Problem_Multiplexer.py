@@ -1,18 +1,4 @@
-'''
-Name: Problem_Multiplexer.py
-Author: Gediminas Bertasius and Ryan Urbanowicz
-Created: June 13, 2013
-Description:  
-Additional Notes: 
-        Address Bits = 1 (3-Multiplexer)
-        Address Bits = 2 (6-Multiplexer)
-        Address Bits = 3 (11-Multiplexer)   
-        Address Bits = 4 (20-Multiplexer)  
-        Address Bits = 5 (37-Multiplexer)                      
-        Address Bits = 6 (70-Multiplexer)   
-        Address Bits = 7 (135-Multiplexer)   
-        Address Bits = 8 (264-Multiplexer)   
-'''
+
 import random
 
 bits = 11

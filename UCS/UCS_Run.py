@@ -46,7 +46,7 @@ def mainRun():
     env = Offline_Environment()
     cons.referenceEnv(
         env)  # Passes the environment to 'Constants' (cons) so that it can be easily accessed from anywhere within the code.
-    cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
+    # cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
     # Clear Local_Output Folder before Run
     folder = 'Local_Output'
     for file in os.listdir(folder):
@@ -74,11 +74,10 @@ def mainRun():
             accuracy = UCS.standardAccuracy
             accurate_numbs[i] = accuracy * env.formatData.numTestphenotypes
             kfold_accuracy = sum(accurate_numbs) / total_instances
-            print("AVERAGE ACCURACY AFTER " + str(cons.kfold) + "-FOLD CROSS VALIDATION is " + str(
-                kfold_accuracy))
     else:
         cons.parseIterations()  # Identify the maximum number of learning iterations as well as evaluation checkpoints.
         UCS()
+    print("AVERAGE ACCURACY AFTER " + str(cons.kfold) + "-FOLD CROSS VALIDATION is " + str(kfold_accuracy))
     t1 = time.clock()
     total = t1 - t0
     total = round(total, 2)
@@ -88,7 +87,7 @@ def mainRun():
 
 if __name__ == '__main__':
 
-    for i in range(3):
+    for i in range(10):
         mainRun()
 
 

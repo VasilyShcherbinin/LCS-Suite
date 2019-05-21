@@ -8,9 +8,9 @@ trainFile=11Multiplexer_Data_Complete_Randomized.txt		# FileName of training dat
 testFile=None									# FileName of testing dataset.  If no testing data available or desired, put 'None'.
 outputDirectory=Local_Output					# Output file directory
 outputFile=ExampleRun							# FileName of output files.
-learningIterations=10			    # Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
+learningIterations=5000			    # Specify complete algorithm evaluation checkpoints and maximum number of learning iterations (e.g. 1000.2000.5000 = A maximum of 5000 learning iterations with evaluations at 1000, 2000, and 5000 iterations)
 N=1000									    # Maximum size of the rule population (a.k.a. Micro-classifier population size, where N is the sum of the classifier numerosities in the population)
-p_spec=0.01									# The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
+p_spec=0.7									# The probability of specifying an attribute when covering. (1-p_spec = the probability of adding '#' in ternary rule representations). Greater numbers of attributes in a dataset will require lower values of p_spec.
 kfold=5									        # if not used, set to 0.
 
 ######--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
